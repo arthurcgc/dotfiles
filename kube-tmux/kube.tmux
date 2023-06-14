@@ -143,7 +143,7 @@ kube_tmux() {
   # Namespace
   if [[ "${KUBE_TMUX_NS_ENABLE}" == true ]]; then
     if [[ -n "${KUBE_TMUX_DIVIDER}" ]]; then
-      KUBE_TMUX+="#[fg=colour250]${KUBE_TMUX_DIVIDER}"
+      KUBE_TMUX+="#[fg=darkblue]${KUBE_TMUX_DIVIDER}"
     fi
     KUBE_TMUX+="#[fg=${3}]${KUBE_TMUX_NAMESPACE}"
   fi
