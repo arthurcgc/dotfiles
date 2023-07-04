@@ -415,7 +415,7 @@ cursor:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    shape: Underline
+    shape: Block
 
     # Cursor blinking state
     #

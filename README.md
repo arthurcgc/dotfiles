@@ -1,6 +1,10 @@
 # Tmux + Alacritty configs
+## Install .tmux.conf and .alacritty
 ```
-ln -s .alacritty.yml ~/.alacritty.yml
-ln -s .tmux.conf ~/.tmux.conf
-ln -s ~/.bashrc .bashrc
+make install
+```
+## Install .bashrc
+```
+make bashrc
+source ~/.bashrc
 ```
