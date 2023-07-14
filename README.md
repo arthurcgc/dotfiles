@@ -1,4 +1,6 @@
 # .bashrc + .tmux + .alacritty configs
+## Prerequisites
+[ripgrep](https://github.com/BurntSushi/ripgrep)
 ## Installation
 ```
 cd ~
