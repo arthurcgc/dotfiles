@@ -1,5 +1,5 @@
-# Tmux + Alacritty configs
-## Install .tmux.conf and .alacritty
+# .bashrc + .tmux + .alacritty configs
+## Installation
 ```
 cd ~
 git clone https://github.com/arthurcgc/.tmux.git
