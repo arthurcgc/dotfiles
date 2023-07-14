@@ -58,3 +58,9 @@ if [ -f '/home/arthurcgc/Downloads/google-cloud-sdk/completion.bash.inc' ]; then
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:/home/arthurcgc/.spicetify
+
+# keep this at the bottom
+if [[ -v TMUX ]]
+then
+    tmux list-panes -s | awk 'END { if(NR == 1 && $4 ~ "0/") system("neofetch")}'
+fi
