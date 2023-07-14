@@ -14,13 +14,6 @@ alias more=less
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
-## arthurcgc ##
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
 # la = ls -la
 alias ls="ls --color=auto"
 alias la="ls -la"
@@ -49,9 +42,6 @@ alias tprod="tsuru --target prod"
 alias tlab="tsuru --target lab"
 alias tlocal="tsuru --target local"
 alias t="tsuru"
-
-# bashrc shortcut
-alias bashrc="vim ${HOME}/.bashrc"
 
 # nvim = vim
 alias vim="nvim"
