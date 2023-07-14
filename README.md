@@ -1,10 +1,9 @@
 # Tmux + Alacritty configs
 ## Install .tmux.conf and .alacritty
 ```
-make install
-```
-## Install .bashrc
-```
-make bashrc
-source ~/.bashrc
+cd ~
+git clone https://github.com/arthurcgc/.tmux.git
+ln -s .tmux/.tmux.conf .
+ln -s .tmux/.alacritty .
+ln -s .tmux/.bashrc .
 ```
