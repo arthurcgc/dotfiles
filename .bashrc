@@ -56,8 +56,12 @@ if [ -f '/home/arthurcgc/Downloads/google-cloud-sdk/completion.bash.inc' ]; then
 . $HOME/Documents/z/z.sh
 
 export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:/home/arthurcgc/.spicetify
+
+eval $(keychain -q --eval github)
+eval $(keychain -q --eval gitlab)
 
 # keep this at the bottom
 if [[ -v TMUX ]]
