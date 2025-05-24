@@ -20,11 +20,11 @@ case $desktop in
 
     i3|/usr/share/xsessions/i3)
     if type "xrandr" > /dev/null; then
-        MONITOR=DisplayPort-1 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        MONITOR=DisplayPort-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
         sleep 1
         MONITOR=HDMI-A-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
     else
-        MONITOR=DisplayPort-1 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        MONITOR=DisplayPort-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
         sleep 1
         MONITOR=HDMI-A-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
     fi
