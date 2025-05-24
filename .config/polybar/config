@@ -39,16 +39,11 @@ format-offset =
 
 [colors]
 ; Nord theme ============
-;background = #2F343F
-;foreground = #f3f4f5
 foreground-active = #6790EB
 occupied = #cccccc
 occupied-active = #b3c7f5
 active = #5e81ac
 ;alert = #d08770
-;volume-min = #a3be8c
-;volume-med = #ebcb8b
-;volume-max = #bf616a
 ; =======================
 
 ; Gotham theme ==========
@@ -59,17 +54,6 @@ volume-min = #2aa889
 volume-med = #edb443
 volume-max = #c23127
 ; =======================
-
-; INTRCPTR theme ============
-;background = ${xrdb:color0:#222}
-;background = #aa000000
-;background-alt = #444
-;foreground = ${xrdb:color7:#222}
-;foreground = #fff
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
 
 ################################################################################
 ################################################################################
@@ -117,12 +101,12 @@ module-margin-right = 3
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
 font-0 = "Adwaita Sans:size=14;0"
-font-1 = "Symbols Nerd Font:size=12;0"
+font-1 = "FontAwesome:size=12;0"
 font-2 = "Adwaita Sans:size=12;0"
 font-3 = "Adwaita Sans Mono:size=13;0"
 
 modules-left = i3
-modules-center = spotify2 spotify-prev spotify-play-pause spotify-next
+modules-center = spotify2
 modules-right = memory2 cpu2 backlight arch-updates pacman-updates date
 
 ;separator = |
@@ -964,35 +948,10 @@ format-background = ${colors.background}
 format-prefix-foreground = #0f0
 label = %output:0:150%
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
-
-
-[module/spotify-prev]
-type = custom/script
-exec = echo ""
-format = <label>
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-click-left = playerctl previous spotify
-click-right = spotify
-
-[module/spotify-play-pause]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = echo ""
-initial = 1
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+double-click-left = playerctl next spotify
 click-left = playerctl play-pause spotify
-click-right = spotify
-
-[module/spotify-next]
-type = custom/script
-exec = echo ""
-format = <label>
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-click-left = playerctl next spotify
-click-right = spotify
+click-right = playerctl previous spotify
+click-middle = spotify
 
 ################################################################################
 
