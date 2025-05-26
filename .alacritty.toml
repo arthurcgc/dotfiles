@@ -2,36 +2,48 @@
 [bell]
 animation = "EaseOutExpo"
 
+
+##################################################
+# theme options include everything from colors.* #
+# just replace the theme color inside this block #
+##################################################
+[colors.primary]
+background = "#08080b"
+foreground = "#787c99"
+
+[colors.cursor]
+cursor = "#787c99"
+text = "0xF81CE5"
+
 [colors]
 draw_bold_text_with_bright_colors = false
 
-[colors.bright]
-black = "0x808080"
-blue = "0x0066ff"
-cyan = "0x00ffff"
-green = "0x33ff00"
-magenta = "0xcc00ff"
-red = "0xfe0100"
-white = "0xFFFFFF"
-yellow = "0xfeff00"
-
-[colors.cursor]
-cursor = "0xffffff"
-text = "0xF81CE5"
+[colors.selection]
+text = "CellForeground"
+background = "#515c7e"
 
 [colors.normal]
-black = "0x000000"
-blue = "0x0066ff"
-cyan = "0x00ffff"
-green = "0x33ff00"
-magenta = "0xcc00ff"
-red = "0xfe0100"
-white = "0xd0d0d0"
-yellow = "0xfeff00"
+black = "#363b54"
+red = "#f7768e"
+green = "#41a6b5"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#787c99"
 
-[colors.primary]
-background = "0x000000"
-foreground = "0xffffff"
+[colors.bright]
+black = "#363b54"
+red = "#f7768e"
+green = "#41a6b5"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#bb9af7"
+cyan = "#7dcfff"
+white = "#787c99"
+#################################################
+# end of theme colors block			#
+#################################################
 
 [cursor]
 unfocused_hollow = true
