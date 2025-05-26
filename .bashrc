@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# Set keyboard layout
+setxkbmap -layout us intl
+
 # Change the window title of X terminals
 use_color=true
 
@@ -37,12 +40,6 @@ shopt -s histappend
 ## After each command, append to the history file and reread it
 PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-#tsuru
-alias tprod="tsuru --target prod"
-alias tlab="tsuru --target lab"
-alias tlocal="tsuru --target local"
-alias t="tsuru"
-
 # nvim = vim
 alias vim="nvim"
 
@@ -59,9 +56,23 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH=$PATH:/home/arthurcgc/.spicetify
+export PATH=$PATH:/home/samsepiol/.cargo/bin
+export PATH=$PATH:/opt/rocm/bin
+export PATH=$PATH:/home/samsepiol/.dotnet
+export PATH=$PATH:/home/samsepiol/.pulumi/bin
+export PATH=$PATH:/home/samsepiol/.yarn/bin
 
-eval $(keychain -q --eval github)
-eval $(keychain -q --eval gitlab)
+eval $(keychain -q --eval github/id_ed25519)
+eval $(keychain -q --eval gitlab/id_ed25519)
+
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# go Version Manager
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
 
 # keep this at the bottom
 if [[ -v TMUX ]]
