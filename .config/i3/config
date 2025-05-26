@@ -59,7 +59,7 @@ exec --no-startup-id xrandr --output DisplayPort-0 --mode 1920x1080 --rate 244 -
 
 # current setup
 
-set $firstMonitor DisplayPort-1
+set $firstMonitor DisplayPort-0
 set $secondMonitor HDMI-A-0
 
 # Other Examples
@@ -113,6 +113,9 @@ bindsym $mod+Shift+7 move container to workspace 7; workspace 7
 bindsym $mod+Shift+8 move container to workspace 8; workspace 8
 bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
+
+################# set cursor theme
+exec --no-startup-id xsetroot -cursor_name left_ptr
 
 ################# menu's in arcolinux
 
@@ -605,9 +608,9 @@ popup_during_fullscreen smart
 # delete or uncomment the following lines if you do not have it or do not
 # want it
 
-for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+for_window [class="^.*"] border pixel 1
+gaps inner 1
+gaps outer 1
 # smart_gaps on
 # smart_borders on
 
