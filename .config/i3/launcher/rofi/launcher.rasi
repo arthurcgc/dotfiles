@@ -8,7 +8,7 @@
 configuration {
 	font:							"Noto sans 12";
     show-icons:                     true;
-	icon-theme: 					"";
+	icon-theme: 					"Sardi Flat Evopop";
     display-drun: 					"";
     drun-display-format:            "{name}";
     disable-history:                true;

@@ -31,7 +31,7 @@ set $right semicolon
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output DisplayPort-1 --mode 1920x1080 --rate 244 --right-of HDMI-A-0 --auto
+exec --no-startup-id xrandr --output DisplayPort-0 --mode 1920x1080 --rate 244 --left-of HDMI-A-0 --auto
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
@@ -259,34 +259,6 @@ bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
 
-# old resize keybindings
-# resize window (you can also use the mouse for that)
-
-# bindsym $mod+r mode "resize"
-
-# mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
- #      bindsym $left       resize shrink width 10 px or 10 ppt
- #      bindsym $down       resize grow height 10 px or 10 ppt
- #      bindsym $up         resize shrink height 10 px or 10 ppt
- #      bindsym $right      resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
- #      bindsym Left        resize shrink width 10 px or 10 ppt
- #      bindsym Down        resize grow height 10 px or 10 ppt
- #      bindsym Up          resize shrink height 10 px or 10 ppt
- #      bindsym Right       resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
- #      bindsym Return mode "default"
- #      bindsym Escape mode "default"
-# }
-
 ################# choose the font                  
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -369,10 +341,10 @@ for_window [class="Spotify"] focus
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Updater
-exec --no-startup-id pamac-tray
+# exec --no-startup-id pamac-tray
 
 # bluetooth
-exec --no-startup-id blueberry-tray
+# exec --no-startup-id blueberry-tray
 
 # network
 exec --no-startup-id nm-applet
@@ -397,8 +369,8 @@ exec --no-startup-id xfce4-clipman
 exec --no-startup-id conky -c ~/.config/conky/AUR-Nemesis.conkyrc
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch.jpg &
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch.jpg &
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch_horizontal.jpg &
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch_vertical.jpg &
 # for other Arch Linux based distros
 # exec --no-startup-id feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 
