@@ -61,6 +61,7 @@ export PATH=$PATH:/opt/rocm/bin
 export PATH=$PATH:/home/samsepiol/.dotnet
 export PATH=$PATH:/home/samsepiol/.pulumi/bin
 export PATH=$PATH:/home/samsepiol/.yarn/bin
+export PATH=$PATH:/home/samsepiol/.local/bin
 
 eval $(keychain -q --eval github/id_ed25519)
 eval $(keychain -q --eval gitlab/id_ed25519)
@@ -79,3 +80,10 @@ if [[ -v TMUX ]]
 then
     tmux list-panes -s | awk 'END { if(NR == 1 && $4 ~ "0/") system("neofetch")}'
 fi
+
+# vtex stuff
+unset NPM_CONFIG_PREFIX
+source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
