@@ -31,8 +31,7 @@ set $right semicolon
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output DisplayPort-0 --mode 1920x1080 --rate 244 --left-of HDMI-A-0 --auto
-
+exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 244 --primary        --output HDMI-A-0 --mode 1920x1080 --rate 100.00 --left-of DisplayPort-2        --output DisplayPort-1 --mode 1920x1080 --rate 143.85 --right-of DisplayPort-2
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
@@ -59,36 +58,20 @@ exec --no-startup-id xrandr --output DisplayPort-0 --mode 1920x1080 --rate 244 -
 
 # current setup
 
-set $firstMonitor DisplayPort-0
+set $firstMonitor DisplayPort-2
 set $secondMonitor HDMI-A-0
-
-# Other Examples
-
-#set $firstMonitor DP3
-#set $secondMonitor LVDS1
-
-#set $firstMonitor DVI-I-0
-#set $secondMonitor HDMI-0
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
-
-#set $firstMonitor DVI-I-1
-#set $secondMonitor DVI-D-1
-
-#set $firstMonitor HDMI-1
-#set $secondMonitor HDMI-2
+set $thirdMonitor DisplayPort-1
 
 workspace 1 output $firstMonitor
 workspace 2 output $firstMonitor
 workspace 3 output $firstMonitor
 workspace 4 output $firstMonitor
-workspace 5 output $firstMonitor
+workspace 5 output $secondMonitor
 workspace 6 output $secondMonitor
 workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
+workspace 8 output $thirdMonitor
+workspace 9 output $thirdMonitor
+workspace 10 output $thirdMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -319,7 +302,7 @@ exec_always --no-startup-id autotiling
 
 # Browser
 # exec --no-startup-id vivaldi-stable
-for_window [class="Vivaldi-stable"] focus
+# for_window [class="Vivaldi-stable"] focus
 
 # Text-editor
 # exec --no-startup-id geany
@@ -333,7 +316,7 @@ for_window [class="Vivaldi-stable"] focus
 
 # Music
 # exec --no-startup-id spotify
-for_window [class="Spotify"] focus
+# for_window [class="Spotify"] focus
 
 # TRAY APPLICATIONS
 
@@ -355,14 +338,6 @@ exec --no-startup-id nm-applet
 # num lock activated
 exec_always --no-startup-id numlockx on
 
-# dropbox
-# exec --no-startup-id dropbox start
-
-# insync
-# exec --no-startup-id insync start
-
-# volume
-# exec --no-startup-id pasystray
 exec --no-startup-id volumeicon
 
 # clipman
@@ -662,82 +637,16 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 ################# bar appearance                   
 
-# bar {
-#     height 25
-#     workspace_buttons yes
-# 	font pango:Noto Sans 12
-# 	# position top
-#     position bottom
-# 
-# 	# system icons
-#     # tray_output none
-#     # tray_output $firstMonitor
-#     # tray_output $secondMonitor
-# 
-#     # OPTION 1 : i3status
-# 
-#     # type status_command i3status without the config file and
-#     # you will get the standard i3status bar
-#     # Second one is the standard statusbar with my personal settings
-# 
-# 	# status_command i3status
-#     status_command i3status -c ~/.config/i3/i3status.conf
-# 
-#     # OPTION 2 : i3blocks
-# 
-#     # https://github.com/vivien/i3blocks
-#     # another way to provide text in the statusbar
-#     # put hastag in front if not installed
-# 
-#     # status_command i3blocks
-#     # status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#     # status_command i3blocks -c ~/.config/i3/i3blocks-rainbow.conf
-#     # status_command i3blocks -c ~/.config/i3/i3blocks-original.conf
-#     # status_command i3blocks -c ~/.config/i3/i3blocks-awesome.conf
-# 
-# 
-#     # OPTION 3 : conky
-# 
-#     # You can also replace the istatus bar with a conky
-#     # start-conky-i3statusbar.sh is started and conky will follow
-#     # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
-#     # conky configuration is in conky-i3statusbar
-# 
-# 	# status_command ~/.config/i3/start-conky-i3statusbar.sh
-# 
-#     # OPTION 4 : polybar
-# 
-#     # polybar is launched elsewhere - search for the word
-#     # from the opening of the "bar {...}" till the end has to go or hashtagged out
-#     # in order for the system trayicons to show up in polybar
-# 
-#     ##START THEMING BAR
-#     # Theme name : ArcoLinux Default
-# 
-#     # i3 bar colors
-#     # variable border background Text
-# 
-#     colors {
-#         background #2F2F2F
-#         statusline #eeeeee
-#         separator  #666666
-# 
-#         # colorclass           border  backgr. text
-#         focused_workspace     #a9a9a9 #5f676a #eeeeee
-#         active_workspace      #a9a9a9 #5f676a #eeeeee
-#         inactive_workspace    #a9a9a9 #222222 #a9a9a9
-#         urgent_workspace      #a9a9a9 #d42121 #FFFFFF
-#         }
-# 
-#     }
-    ##STOP THEMING BAR
+# bar
+## we're using polybar, its configuration is in ~/.config/polybar/config
+##STOP THEMING BAR
 
     ##START THEMING WM
     #Theme name : ArcoLinux Mastermind
 
     # Window color settings
-    # class                 border  backgr. text    indicator
-    client.focused          #4c7899 #4c7899 #ffffff #4c7899
+    # class                     border  backgr. text    indicator
+    client.focused          #4c7899 #3c21b6 #ffffff #4c7899
     client.unfocused        #333333 #222222 #888888 #292d2e
     client.focused_inactive #333333 #222222 #888888 #292d2e
     client.placeholder      #333333 #222222 #888888 #292d2e
@@ -748,48 +657,3 @@ bindsym control+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
     ##STOP THEMING WM
 
 ######################################## THE END 
-
-################# Scratchpad
-
-# NOT USED
-
-# move the currently focused window to the scratchpad
-# bindsym Mod1+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-# bindsym Mod1+minus scratchpad show
-
-################# mouse settings in i3             
-
-# NOT USED
-
-# mouse settings
-# The middle button over a titlebar kills the window
-# bindsym --release button2 kill
-
-# The middle button and a modifer over any part of the window kills the window
-# bindsym --whole-window $mod+button2 kill
-
-# The right button toggles floating
-# bindsym button3 floating toggle
-# bindsym $mod+button3 floating toggle
-
-# The side buttons move the window around
-# bindsym button9 move left
-# bindsym button8 move right
-
-################# keyboard control                 
-
-# NOT USED
-
-# Settings of arcolinux will be applied
-# exec --no-startup-id setxkbmap be
-# exec --no-startup-id setxkbmap us
-
-################# unclutter                        
-
-# NOT USED
-
-# get the mouse out of the way with unclutter
-# exec --no-startup-id unclutter
