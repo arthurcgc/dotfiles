@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-Personal dotfiles for an ArcoLinux (Arch-based) system running i3 window manager with Polybar. These configs are designed to be symlinked from the home directory.
+Personal dotfiles for an ArcoLinux (Arch-based) system running i3 window manager with Polybar. Managed via Makefile for easy installation on clean systems.
 
 ## Key Configurations
 
 ### i3 Window Manager (`.config/i3/config`)
 - **Mod key**: Super (Mod4)
 - **Navigation**: Vim-style (j/k/l/;) and arrow keys
-- **Dual monitor setup**: DisplayPort-0 (left, workspaces 1-5) and HDMI-A-0 (right, workspaces 6-10)
+- **Triple monitor setup**: DisplayPort-2 (primary, workspaces 1-4), HDMI-A-0 (left, workspaces 5-7), DisplayPort-1 (right, workspaces 8-10)
 - **Terminal**: Alacritty (`$mod+Return`)
 - **Launcher**: Rofi (`$mod+d`)
 - **Screenshots**: Flameshot (`$mod+p`)
@@ -36,14 +36,15 @@ Personal dotfiles for an ArcoLinux (Arch-based) system running i3 window manager
 
 ## Installation
 
-The README suggests symlinking from home:
 ```bash
-ln -s dotfiles/.config/i3 ~/.config/i3
-ln -s dotfiles/.tmux/.tmux.conf ~/.tmux.conf
-# etc.
+git clone https://github.com/arthurcgc/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+make install
 ```
+
+This backs up existing files to `~/.dotfiles.bak/` and creates symlinks.
 
 ## When Modifying Configs
 
-After changes to i3 config: `$mod+Shift+r` to restart i3 in-place
-After changes to Polybar: Run `~/.config/polybar/launch.sh` or restart i3
+- After changes to i3 config: `$mod+Shift+r` to restart i3 in-place
+- After changes to Polybar: Run `~/.config/polybar/launch.sh` or restart i3
