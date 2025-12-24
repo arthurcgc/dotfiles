@@ -74,6 +74,11 @@ eval "$(pyenv init -)"
 # go Version Manager
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
+# npm global packages
+unset NPM_CONFIG_PREFIX
+
+# GitHub Personal Access Token
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(pass show github/personal-access-token 2>/dev/null)"
 
 # keep this at the bottom
 if [[ -v TMUX ]]
@@ -81,9 +86,3 @@ then
     tmux list-panes -s | awk 'END { if(NR == 1 && $4 ~ "0/") system("neofetch")}'
 fi
 
-# vtex stuff
-unset NPM_CONFIG_PREFIX
-source /usr/share/nvm/init-nvm.sh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
