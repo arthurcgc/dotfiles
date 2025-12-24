@@ -30,8 +30,11 @@ set $right semicolon
 
 ################# Single and Dual screen
 
-# current displays
-exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 244 --primary        --output HDMI-A-0 --mode 1920x1080 --rate 100.00 --left-of DisplayPort-2        --output DisplayPort-1 --mode 1920x1080 --rate 143.85 --right-of DisplayPort-2
+# 3-monitor setup (uncomment when using all 3)
+# exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 244 --primary --output HDMI-A-0 --mode 1920x1080 --rate 100.00 --left-of DisplayPort-2 --output DisplayPort-1 --mode 1920x1080 --rate 143.85 --right-of DisplayPort-2
+
+# 2-monitor setup (DP-2 left/primary, DP-1 right)
+exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 239.76 --primary --pos 0x0 --output DisplayPort-1 --mode 1920x1080 --rate 143.85 --right-of DisplayPort-2
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
 # use this line to tell which monitor is on the right
@@ -56,22 +59,35 @@ exec --no-startup-id xrandr --output DisplayPort-2 --mode 1920x1080 --rate 244 -
 #bindsym $mod+3 workspace $ws3
 #bindsym $mod+4 workspace $ws4
 
-# current setup
+# 3-monitor setup (uncomment when using all 3)
+# set $firstMonitor DisplayPort-2
+# set $secondMonitor HDMI-A-0
+# set $thirdMonitor DisplayPort-1
+# workspace 1 output $firstMonitor
+# workspace 2 output $firstMonitor
+# workspace 3 output $firstMonitor
+# workspace 4 output $firstMonitor
+# workspace 5 output $secondMonitor
+# workspace 6 output $secondMonitor
+# workspace 7 output $secondMonitor
+# workspace 8 output $thirdMonitor
+# workspace 9 output $thirdMonitor
+# workspace 10 output $thirdMonitor
 
-set $firstMonitor DisplayPort-2
-set $secondMonitor HDMI-A-0
-set $thirdMonitor DisplayPort-1
+# 2-monitor setup (5-5 split: WS 1-5 on DP-2, WS 6-10 on DP-1)
+set $primaryMonitor DisplayPort-2
+set $secondaryMonitor DisplayPort-1
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
-workspace 5 output $secondMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $thirdMonitor
-workspace 9 output $thirdMonitor
-workspace 10 output $thirdMonitor
+workspace 1 output $primaryMonitor
+workspace 2 output $primaryMonitor
+workspace 3 output $primaryMonitor
+workspace 4 output $primaryMonitor
+workspace 5 output $primaryMonitor
+workspace 6 output $secondaryMonitor
+workspace 7 output $secondaryMonitor
+workspace 8 output $secondaryMonitor
+workspace 9 output $secondaryMonitor
+workspace 10 output $secondaryMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1

@@ -20,13 +20,11 @@ case $desktop in
 
     i3|/usr/share/xsessions/i3)
     if type "xrandr" > /dev/null; then
-        MONITOR=DisplayPort-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
-        sleep 1
-        MONITOR=HDMI-A-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+      done
     else
-        MONITOR=DisplayPort-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
-        sleep 1
-        MONITOR=HDMI-A-0 polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+      polybar --reload mainbar-i3 -c ~/.config/polybar/config &
     fi
     # second polybar at bottom
     # if type "xrandr" > /dev/null; then
