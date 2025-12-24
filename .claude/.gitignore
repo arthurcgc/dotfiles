@@ -1,0 +1,18 @@
+# Credentials and tokens
+.credentials.json
+
+# Session history (may contain pasted secrets)
+history.jsonl
+
+# Analytics and telemetry
+statsig/
+stats-cache.json
+
+# Runtime/ephemeral data
+session-env/
+file-history/
+debug/
+shell-snapshots/
+todos/
+projects/
+plugins/
