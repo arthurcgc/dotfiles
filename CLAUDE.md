@@ -11,7 +11,9 @@ Personal dotfiles for an ArcoLinux (Arch-based) system running i3 window manager
 ### i3 Window Manager (`.config/i3/config`)
 - **Mod key**: Super (Mod4)
 - **Navigation**: Vim-style (j/k/l/;) and arrow keys
-- **Triple monitor setup**: DisplayPort-2 (primary, workspaces 1-4), HDMI-A-0 (left, workspaces 5-7), DisplayPort-1 (right, workspaces 8-10)
+- **Monitor setup**: Supports 2 or 3 monitors (toggle by commenting/uncommenting in config)
+  - 2-monitor: DP-2 @ 240Hz (left, WS 1-5), DP-1 @ 144Hz (right, WS 6-10)
+  - 3-monitor: DP-2 primary (WS 1-4), HDMI-A-0 left (WS 5-7), DP-1 right (WS 8-10)
 - **Terminal**: Alacritty (`$mod+Return`)
 - **Launcher**: Rofi (`$mod+d`)
 - **Screenshots**: Flameshot (`$mod+p`)
@@ -21,7 +23,7 @@ Personal dotfiles for an ArcoLinux (Arch-based) system running i3 window manager
 ### Polybar (`.config/polybar/`)
 - Gotham color theme with Nord workspace accents
 - Modules: i3 workspaces, Spotify, memory, CPU, backlight, arch/pacman updates, date
-- Launched via `~/.config/polybar/launch.sh`
+- Launched via `~/.config/polybar/launch.sh` (auto-detects connected monitors)
 - Custom scripts in `.config/polybar/scripts/` for Spotify, updates, weather, etc.
 
 ### Terminal Stack
