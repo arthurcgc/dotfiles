@@ -62,6 +62,7 @@ conky.config = {
 	--gap_x = -1910,
 	gap_x = 10,									-- pixels between right or left border
 	gap_y = 20,									-- pixels between bottom or left border
+	xinerama_head = tonumber(os.getenv("CONKY_HEAD")) or 0,  -- monitor index
 	minimum_height = 600,						-- minimum height of window
 	minimum_width = 230,						-- minimum height of window
 	maximum_width = 230,						-- maximum height of window

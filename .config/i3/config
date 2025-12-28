@@ -361,8 +361,10 @@ for_window [class="Volumeicon"] move scratchpad
 # clipman
 exec --no-startup-id xfce4-clipman
 
-# Conky
-exec --no-startup-id conky -c ~/.config/conky/AUR-Nemesis.conkyrc
+# Conky on all monitors
+exec --no-startup-id CONKY_HEAD=0 conky -c ~/.config/conky/AUR-Nemesis.conkyrc
+exec --no-startup-id CONKY_HEAD=1 conky -c ~/.config/conky/AUR-Nemesis.conkyrc
+exec --no-startup-id CONKY_HEAD=2 conky -c ~/.config/conky/AUR-Nemesis.conkyrc
 
 # feh sets wallpaper (order: center, left-vertical, right)
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch_horizontal.jpg ~/Pictures/wallpapers/arch_vertical_purple.jpg ~/Pictures/wallpapers/arch_horizontal_cyan.jpg
