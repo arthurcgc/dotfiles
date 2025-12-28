@@ -363,8 +363,8 @@ exec --no-startup-id xfce4-clipman
 # Conky
 exec --no-startup-id conky -c ~/.config/conky/AUR-Nemesis.conkyrc
 
-# feh sets wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch_horizontal.jpg
+# feh sets wallpaper (order: center, left-vertical, right)
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch_horizontal.jpg ~/Pictures/wallpapers/arch_vertical_purple.jpg ~/Pictures/wallpapers/arch_horizontal_cyan.jpg
 # for other Arch Linux based distros
 # exec --no-startup-id feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 
