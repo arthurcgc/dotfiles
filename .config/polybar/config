@@ -119,7 +119,7 @@ tray-offset-y = 0
 tray-padding = 2
 tray-maxsize = 35
 tray-scale = 1.0
-tray-position = right
+tray-position = ${env:TRAY_POS:right}
 tray-background = ${colors.background}
 
 #i3: Make the bar appear below windows

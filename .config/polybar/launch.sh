@@ -20,8 +20,13 @@ case $desktop in
 
     i3|/usr/share/xsessions/i3)
     if type "xrandr" > /dev/null; then
+      primary=$(xrandr --query | grep " primary" | cut -d" " -f1)
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        if [ "$m" = "$primary" ]; then
+          MONITOR=$m TRAY_POS=right polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        else
+          MONITOR=$m TRAY_POS=none polybar --reload mainbar-i3 -c ~/.config/polybar/config &
+        fi
       done
     else
       polybar --reload mainbar-i3 -c ~/.config/polybar/config &
