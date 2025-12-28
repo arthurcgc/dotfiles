@@ -11,9 +11,11 @@ Personal dotfiles for an ArcoLinux (Arch-based) system running i3 window manager
 ### i3 Window Manager (`.config/i3/config`)
 - **Mod key**: Super (Mod4)
 - **Navigation**: Vim-style (j/k/l/;) and arrow keys
-- **Monitor setup**: Supports 2 or 3 monitors (toggle by commenting/uncommenting in config)
-  - 2-monitor: DP-2 @ 240Hz (left, WS 1-5), DP-1 @ 144Hz (right, WS 6-10)
-  - 3-monitor: DP-2 primary (WS 1-4), HDMI-A-0 left (WS 5-7), DP-1 right (WS 8-10)
+- **Monitor setup**: Dual-GPU 3-monitor layout (RX 7800 XT + RX 6750 XT)
+  - Layout: [HDMI-A-1-0 left vertical @100Hz] [DisplayPort-3 center/primary @240Hz] [DisplayPort-1-0 right @144Hz]
+  - DisplayPort-3 (7800 XT): primary, WS 1-4
+  - HDMI-A-1-0 (6750 XT): left vertical, WS 5-7
+  - DisplayPort-1-0 (6750 XT): right, WS 8-10
 - **Terminal**: Alacritty (`$mod+Return`)
 - **Launcher**: Rofi (`$mod+d`)
 - **Screenshots**: Flameshot (`$mod+p`)
