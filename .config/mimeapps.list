@@ -91,6 +91,7 @@ x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/trash=exo-file-manager.desktop
 x-scheme-handler/unknown=firefox.desktop
+audio/vnd.wave=vlc.desktop;
 
 [Default Applications]
 x-scheme-handler/msteams=teams.desktop
