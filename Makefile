@@ -13,7 +13,7 @@ CONFIG_DIRS := autostart conky gtk-3.0 i3 polybar variety
 # Files inside .config to symlink
 CONFIG_FILES := mimeapps.list
 
-.PHONY: all install uninstall backup help
+.PHONY: all install uninstall backup packages help
 
 all: help
 
@@ -22,6 +22,11 @@ help:
 	@echo "  make install   - Create symlinks (backs up existing files)"
 	@echo "  make uninstall - Remove symlinks"
 	@echo "  make backup    - Backup existing dotfiles to ~/.dotfiles.bak/"
+	@echo "  make packages  - Snapshot explicitly installed packages to packages.txt"
+
+packages:
+	@yay -Qe > $(DOTFILES)/packages.txt
+	@echo "Saved $$(wc -l < $(DOTFILES)/packages.txt) packages to packages.txt"
 
 install: backup
 	@echo "Creating symlinks..."
