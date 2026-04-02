@@ -2,7 +2,7 @@
 application/gzip=org.gnome.FileRoller.desktop;
 application/json=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
 application/octet-stream=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
-application/pdf=libreoffice-draw.desktop;org.kde.okular.desktop;org.gnome.Evince.desktop;
+application/pdf=chromium.desktop;firefox.desktop;libreoffice-draw.desktop;org.kde.okular.desktop;org.gnome.Evince.desktop;
 application/pgp-encrypted=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
 application/pgp-keys=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
 application/pgp-signature=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
@@ -97,3 +97,4 @@ audio/vnd.wave=vlc.desktop;
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop

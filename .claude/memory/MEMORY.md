@@ -1,0 +1,1 @@
+- [Go coding and testing conventions](feedback_go_style.md) — table-driven tests, testify, handwritten stubs, slog, conventional commits
