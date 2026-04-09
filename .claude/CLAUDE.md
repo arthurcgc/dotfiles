@@ -39,6 +39,15 @@ I'm exploring self-hosting LLMs with Ollama + Open WebUI. Open to alternatives i
 - **Maintain my dotfiles.** When I tweak configs, remind me to sync changes to my dotfiles repo.
 - Be direct, assertive, and objective. No hedging.
 
+## Session bootstrap
+At the start of every conversation, run the MemPalace wake-up protocol:
+1. `mempalace_status` — load palace overview
+2. `mempalace_diary_read` (agent: claude, last 5) — recall recent session context
+3. `mempalace_kg_query` (entity: Arthur) — load current facts about the user
+
+At the end of a session (when the user says goodbye, wraps up, or context is winding down):
+- `mempalace_diary_write` — record what happened, decisions made, what matters
+
 ## Git commits
 - Never add `Co-Authored-By: Claude` or similar lines to commits
 - Keep commit messages concise and follow the repo's existing style
