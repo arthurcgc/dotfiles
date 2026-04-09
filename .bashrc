@@ -80,9 +80,17 @@ unset NPM_CONFIG_PREFIX
 # GitHub Personal Access Token
 export GITHUB_PERSONAL_ACCESS_TOKEN="$(pass show github/personal-access-token 2>/dev/null)"
 
+# Fix stale XAUTHORITY after SDDM re-login
+if [ -n "$DISPLAY" ] && [ ! -f "$XAUTHORITY" ]; then
+    export XAUTHORITY=$(find /tmp -maxdepth 1 -name 'xauth_*' -user "$USER" -print -quit 2>/dev/null)
+fi
+
 # keep this at the bottom
 if [[ -v TMUX ]]
 then
     tmux list-panes -s | awk 'END { if(NR == 1 && $4 ~ "0/") system("neofetch")}'
 fi
 
+# OpenClaw
+export OPENCLAW_ALLOW_INSECURE_PRIVATE_WS=1
+source "/home/samsepiol/.openclaw/completions/openclaw.bash"

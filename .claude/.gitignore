@@ -21,4 +21,7 @@ plans/
 backups/
 cache/
 ide/
+paste-cache/
+tasks/
+telemetry/
 mcp-needs-auth-cache.json

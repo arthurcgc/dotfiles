@@ -2,7 +2,7 @@ DOTFILES := $(shell pwd)
 HOME_DIR := $(HOME)
 
 # Files to symlink directly to ~
-HOME_FILES := .alacritty.toml .bashrc .zshrc .Xresources .gtkrc-2.0
+HOME_FILES := .alacritty.toml .bashrc .zshrc .Xresources .gtkrc-2.0 .claude.json
 
 # Directories to symlink directly to ~
 HOME_DIRS := .claude .tmux
