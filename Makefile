@@ -13,16 +13,20 @@ CONFIG_DIRS := autostart conky gtk-3.0 i3 polybar variety
 # Files inside .config to symlink
 CONFIG_FILES := mimeapps.list
 
-.PHONY: all install uninstall backup packages help
+# System-level config files (require sudo to install)
+SYSTEM_CONFIGS := etc/udev/rules.d/99-gpu-power.rules etc/tmpfiles.d/99-cpu-power.conf
+
+.PHONY: all install uninstall backup packages help system-install
 
 all: help
 
 help:
 	@echo "Usage:"
-	@echo "  make install   - Create symlinks (backs up existing files)"
-	@echo "  make uninstall - Remove symlinks"
-	@echo "  make backup    - Backup existing dotfiles to ~/.dotfiles.bak/"
-	@echo "  make packages  - Snapshot explicitly installed packages to packages.txt"
+	@echo "  make install        - Create symlinks (backs up existing files)"
+	@echo "  make system-install - Copy system configs to /etc (requires sudo)"
+	@echo "  make uninstall      - Remove symlinks"
+	@echo "  make backup         - Backup existing dotfiles to ~/.dotfiles.bak/"
+	@echo "  make packages       - Snapshot explicitly installed packages to packages.txt"
 
 packages:
 	@yay -Qe > $(DOTFILES)/packages.txt
@@ -68,6 +72,17 @@ install: backup
 		echo "  .config/$$f -> $(DOTFILES)/.config/$$f"; \
 	done
 	@echo "Done! Restart your shell or run: source ~/.bashrc"
+
+system-install:
+	@echo "Installing system configs (requires sudo)..."
+	@for f in $(SYSTEM_CONFIGS); do \
+		sudo cp "$(DOTFILES)/$$f" "/$$f"; \
+		echo "  /$$f"; \
+	done
+	@sudo udevadm control --reload-rules
+	@sudo udevadm trigger
+	@sudo systemd-tmpfiles --create
+	@echo "Done! System configs installed."
 
 backup:
 	@mkdir -p $(HOME_DIR)/.dotfiles.bak
