@@ -2,8 +2,10 @@
 # ~/.bashrc
 #
 
-# Set keyboard layout
-setxkbmap -layout us intl
+# Set keyboard layout (interactive only)
+if [[ $- == *i* ]]; then
+    setxkbmap -layout us intl
+fi
 
 # Change the window title of X terminals
 use_color=true
@@ -63,8 +65,11 @@ export PATH=$PATH:/home/samsepiol/.pulumi/bin
 export PATH=$PATH:/home/samsepiol/.yarn/bin
 export PATH=$PATH:/home/samsepiol/.local/bin
 
-eval $(keychain -q --eval github/id_ed25519)
-eval $(keychain -q --eval gitlab/id_ed25519)
+# Only run in interactive shells — avoids blocking OpenClaw/non-interactive sessions
+if [[ $- == *i* ]]; then
+    eval $(keychain -q --eval github/id_ed25519)
+    eval $(keychain -q --eval gitlab/id_ed25519)
+fi
 
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -75,7 +80,10 @@ eval "$(pyenv init -)"
 unset NPM_CONFIG_PREFIX
 
 # GitHub Personal Access Token
-export GITHUB_PERSONAL_ACCESS_TOKEN="$(pass show github/personal-access-token 2>/dev/null)"
+# Only decrypt in interactive shells — GPG prompt blocks non-interactive sessions
+if [[ $- == *i* ]]; then
+    export GITHUB_PERSONAL_ACCESS_TOKEN="$(pass show github/personal-access-token 2>/dev/null)"
+fi
 
 # Fix stale XAUTHORITY after SDDM re-login
 if [ -n "$DISPLAY" ] && [ ! -f "$XAUTHORITY" ]; then
