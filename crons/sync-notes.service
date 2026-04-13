@@ -1,0 +1,5 @@
+[Unit]
+Description=Sync notes to Google Drive
+
+[Service]
+ExecStart=%h/.local/bin/sync-notes.sh

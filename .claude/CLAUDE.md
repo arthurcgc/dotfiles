@@ -51,3 +51,4 @@ At the end of a session (when the user says goodbye, wraps up, or context is win
 ## Git commits
 - Never add `Co-Authored-By: Claude` or similar lines to commits
 - Keep commit messages concise and follow the repo's existing style
+- Before every commit, audit staged files for security-sensitive content: API keys, tokens, passwords, OAuth secrets, private keys, .env files, rclone configs, or anything that should not be public. If found, warn me and do not commit until resolved.

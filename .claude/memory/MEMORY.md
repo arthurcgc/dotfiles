@@ -1,1 +1,2 @@
 - [Go coding and testing conventions](feedback_go_style.md) — table-driven tests, testify, handwritten stubs, slog, conventional commits
+- [Obsidian knowledge first](feedback_obsidian_knowledge_first.md) — check vault at ~/notes/ before web searching any topic
