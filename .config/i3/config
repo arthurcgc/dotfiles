@@ -355,8 +355,7 @@ exec --no-startup-id nm-applet
 # num lock activated
 exec_always --no-startup-id numlockx on
 
-exec --no-startup-id pasystray
-for_window [class="Volumeicon"] move scratchpad
+exec --no-startup-id volumeicon
 
 # clipman
 exec --no-startup-id xfce4-clipman

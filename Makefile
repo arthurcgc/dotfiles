@@ -8,7 +8,7 @@ HOME_FILES := .alacritty.toml .bashrc .zshrc .Xresources .gtkrc-2.0 .claude.json
 HOME_DIRS := .claude .tmux
 
 # Directories inside .config to symlink
-CONFIG_DIRS := autostart conky gtk-3.0 i3 polybar variety
+CONFIG_DIRS := autostart conky gtk-3.0 i3 polybar variety volumeicon
 
 # Files inside .config to symlink
 CONFIG_FILES := mimeapps.list
