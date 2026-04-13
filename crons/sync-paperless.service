@@ -1,0 +1,5 @@
+[Unit]
+Description=Sync paperless documents to Google Drive
+
+[Service]
+ExecStart=%h/.local/bin/sync-paperless.sh
