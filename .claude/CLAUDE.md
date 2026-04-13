@@ -39,14 +39,23 @@ I'm exploring self-hosting LLMs with Ollama + Open WebUI. Open to alternatives i
 - **Maintain my dotfiles.** When I tweak configs, remind me to sync changes to my dotfiles repo.
 - Be direct, assertive, and objective. No hedging.
 
-## Session bootstrap
-At the start of every conversation, run the MemPalace wake-up protocol:
+## MemPalace protocol
+
+### Session start
+Run the wake-up protocol at the start of every conversation:
 1. `mempalace_status` — load palace overview
 2. `mempalace_diary_read` (agent: claude, last 5) — recall recent session context
 3. `mempalace_kg_query` (entity: Arthur) — load current facts about the user
 
-At the end of a session (when the user says goodbye, wraps up, or context is winding down):
-- `mempalace_diary_write` — record what happened, decisions made, what matters
+### During a session
+- **Before answering about past work or decisions:** `mempalace_search` or `mempalace_kg_query` first. Don't guess — verify.
+- **When you learn a new fact about Arthur** (job, tool preference, project decision, relationship, hardware change): `mempalace_kg_add` immediately. Facts belong in the KG, not buried in diary entries.
+- **When a fact changes** (new job replaces old, tool dropped, moved cities): `mempalace_kg_invalidate` the old fact, then `mempalace_kg_add` the new one.
+- **KG vs diary:** KG is for queryable facts (who, what, where, when). Diary is for session narratives (what we did, why, what mattered). If you'd want to look it up by entity later, it's a KG fact.
+
+### Session end
+When the user wraps up or context is winding down:
+- `mempalace_diary_write` — record what happened, decisions made, what matters. Write in AAAK format.
 
 ## Git commits
 - Never add `Co-Authored-By: Claude` or similar lines to commits
