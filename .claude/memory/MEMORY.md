@@ -1,1 +1,2 @@
 - [Go coding and testing conventions](feedback_go_style.md) — table-driven tests, testify, handwritten stubs, slog, conventional commits
+- [Review before done](feedback_review_before_done.md) — Spawn independent Opus reviewer before reporting non-trivial work as complete
