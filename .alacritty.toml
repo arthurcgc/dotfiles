@@ -8,39 +8,39 @@ animation = "EaseOutExpo"
 # just replace the theme color inside this block #
 ##################################################
 [colors.primary]
-background = "#08080b"
-foreground = "#787c99"
+background = "#222436"
+foreground = "#c8d3f5"
 
 [colors.cursor]
-cursor = "#787c99"
-text = "0xF81CE5"
+cursor = "#c8d3f5"
+text = "#222436"
 
 [colors]
 draw_bold_text_with_bright_colors = false
 
 [colors.selection]
 text = "CellForeground"
-background = "#515c7e"
+background = "#2f334d"
 
 [colors.normal]
-black = "#363b54"
-red = "#f7768e"
-green = "#41a6b5"
-yellow = "#e0af68"
-blue = "#7aa2f7"
-magenta = "#bb9af7"
-cyan = "#7dcfff"
-white = "#787c99"
+black = "#1b1d2b"
+red = "#ff757f"
+green = "#4fd6be"
+yellow = "#ffc777"
+blue = "#82aaff"
+magenta = "#fca7ea"
+cyan = "#86e1fc"
+white = "#828bb8"
 
 [colors.bright]
-black = "#363b54"
-red = "#f7768e"
-green = "#41a6b5"
-yellow = "#e0af68"
-blue = "#7aa2f7"
-magenta = "#bb9af7"
-cyan = "#7dcfff"
-white = "#787c99"
+black = "#444a73"
+red = "#ff757f"
+green = "#4fd6be"
+yellow = "#ffc777"
+blue = "#82aaff"
+magenta = "#fca7ea"
+cyan = "#86e1fc"
+white = "#c8d3f5"
 #################################################
 # end of theme colors block			#
 #################################################
