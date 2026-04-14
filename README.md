@@ -12,7 +12,6 @@ Personal dotfiles for ArcoLinux (Arch-based) with i3 window manager.
 | `.tmux` | Tmux with vi mode, kube-tmux status |
 | `.bashrc` / `.zshrc` | Shell config with kubectl, gvm, pyenv |
 | `.Xresources` | X11 settings (DPI, URxvt) |
-| `.claude` | Claude Code global settings and custom agents |
 
 ## Prerequisites
 
