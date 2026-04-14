@@ -2,10 +2,10 @@ DOTFILES := $(shell pwd)
 HOME_DIR := $(HOME)
 
 # Files to symlink directly to ~
-HOME_FILES := .alacritty.toml .bashrc .zshrc .Xresources .gtkrc-2.0 .claude.json
+HOME_FILES := .alacritty.toml .bashrc .zshrc .Xresources .gtkrc-2.0
 
 # Directories to symlink directly to ~
-HOME_DIRS := .claude .tmux
+HOME_DIRS := .tmux
 
 # Directories inside .config to symlink
 CONFIG_DIRS := autostart conky gtk-3.0 i3 polybar variety volumeicon
