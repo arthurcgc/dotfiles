@@ -96,6 +96,14 @@ then
     tmux list-panes -s | awk 'END { if(NR == 1 && $4 ~ "0/") system("neofetch")}'
 fi
 
+# SadServers SSH
+sad() {
+    chmod 600 ~/.ssh/sadkey && \
+    vim ~/.ssh/sadkey && \
+    chmod 400 ~/.ssh/sadkey && \
+    ssh -i ~/.ssh/sadkey "admin@$1"
+}
+
 # OpenClaw
 export OPENCLAW_ALLOW_INSECURE_PRIVATE_WS=1
 source "/home/samsepiol/.openclaw/completions/openclaw.bash"
