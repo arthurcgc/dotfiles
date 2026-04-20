@@ -45,6 +45,14 @@ if command -v kubectl &>/dev/null; then
     compdef __start_kubectl k
 fi
 
+# netshoot: ephemeral debug pod (bash). Optional arg: namespace.
+netshoot() {
+    kubectl run "netshoot-$RANDOM" --rm -it \
+        --image=nicolaka/netshoot \
+        ${1:+-n "$1"} \
+        --command -- /bin/bash
+}
+
 # PROMPT
 setopt PROMPT_SUBST
 
