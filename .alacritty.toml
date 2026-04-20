@@ -60,20 +60,20 @@ TERM = "alacritty-direct"
 size = 12
 
 [font.bold]
-family = "Hack"
+family = "Hack Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Hack"
+family = "Hack Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Hack"
+family = "Hack Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Hack"
-style = ""
+family = "Hack Nerd Font"
+style = "Regular"
 
 [font.offset]
 x = 0
@@ -81,7 +81,7 @@ y = 1
 
 [terminal.shell]
 args = ["-l", "-c", "tmux attach || tmux"]
-program = "/bin/bash"
+program = "/bin/zsh"
 
 [window]
 decorations = "full"
