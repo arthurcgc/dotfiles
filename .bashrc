@@ -28,6 +28,14 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
 
+# netshoot: ephemeral debug pod (bash). Optional arg: namespace.
+netshoot() {
+    kubectl run "netshoot-$RANDOM" --rm -it \
+        --image=nicolaka/netshoot \
+        ${1:+-n "$1"} \
+        --command -- /bin/bash
+}
+
 # PS1
 export PS1="\[\033[38;5;25m\]@\u\[$(tput sgr0)\]\[\033[38;5;61m\][\[$(tput sgr0)\]\[\033[38;5;31m\]\w\[$(tput sgr0)\]\[\033[38;5;61m\]]\[$(tput sgr0)\]\[\033[38;5;226m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\]\[\033[38;5;47m\]:\[$(tput sgr0)\]"
 
