@@ -1,8 +1,8 @@
 # Crons
 
-Systemd user timers. Source of truth lives here — symlink or copy to activate.
+Systemd user timers (Linux) and launchd plists (macOS). Source of truth lives here.
 
-## Setup
+## Linux setup (systemd)
 
 ```bash
 # Symlink units into systemd
@@ -16,6 +16,24 @@ chmod +x ~/.local/bin/sync-notes.sh
 # Enable and start
 systemctl --user daemon-reload
 systemctl --user enable --now sync-notes.timer
+
+# First run: establish bisync baseline
+rclone bisync ~/notes gdrive:notes --resync
+```
+
+## macOS setup (launchd)
+
+```bash
+# Copy script
+cp sync-notes.sh ~/.local/bin/sync-notes.sh
+chmod +x ~/.local/bin/sync-notes.sh
+
+# Install launchd plist
+cp sync-notes-mac.plist ~/Library/LaunchAgents/com.arthur.sync-notes.plist
+launchctl load ~/Library/LaunchAgents/com.arthur.sync-notes.plist
+
+# First run: establish bisync baseline
+rclone bisync ~/notes gdrive:notes --resync
 ```
 
 ## Security
@@ -27,4 +45,5 @@ systemctl --user enable --now sync-notes.timer
 
 | Timer | Schedule | What |
 |-------|----------|------|
-| sync-notes | Every 30min | `rclone sync ~/notes gdrive:notes` |
+| sync-notes | Every 30min | `rclone bisync ~/notes gdrive:notes` (conflict: newer wins) |
+| sync-paperless | Every 30min | Export Paperless docs, then rclone bisync consume + export to GDrive |
