@@ -150,10 +150,10 @@ install_github_mcp() {
     go install github.com/github/github-mcp-server/cmd/github-mcp-server@latest
 }
 
-# ---------- 7. pyenv + Python + mempalace ----------
+# ---------- 7. pyenv + Python ----------
 PYTHON_VERSION="3.12"
 
-install_mempalace() {
+install_python() {
     if ! command_exists pyenv; then
         info "Installing pyenv..."
         if [[ "$OS" == "Darwin" ]]; then
@@ -173,15 +173,6 @@ install_mempalace() {
         pyenv install "$PYTHON_FULL"
     else
         info "Python ${PYTHON_FULL} already installed via pyenv."
-    fi
-
-    PYENV_PYTHON="$(pyenv prefix "$PYTHON_FULL")/bin/python"
-
-    if "$PYENV_PYTHON" -c "import mempalace" &>/dev/null; then
-        info "mempalace already installed."
-    else
-        info "Installing mempalace..."
-        "$PYENV_PYTHON" -m pip install --quiet mempalace
     fi
 }
 
@@ -243,7 +234,7 @@ install_docker
 install_kubectl
 install_claude
 install_github_mcp
-install_mempalace
+install_python
 fix_claude_paths
 
 info "Running dotfiles install..."

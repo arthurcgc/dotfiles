@@ -103,9 +103,12 @@ fi
 # npm global packages
 unset NPM_CONFIG_PREFIX
 
-# GitHub Personal Access Token
+# GitHub Personal Access Token (lazy — avoids GPG prompt on every shell spawn)
 if command -v pass &>/dev/null; then
-    export GITHUB_PERSONAL_ACCESS_TOKEN="$(pass show github/personal-access-token 2>/dev/null)"
+    github_pat() {
+        export GITHUB_PERSONAL_ACCESS_TOKEN="$(pass show github/personal-access-token 2>/dev/null)"
+        echo "$GITHUB_PERSONAL_ACCESS_TOKEN"
+    }
 fi
 
 # Fix stale XAUTHORITY after SDDM re-login (Linux/X11 only)
@@ -126,3 +129,4 @@ elif [[ -f "$HOME/.openclaw/completions/openclaw.bash" ]]; then
     export OPENCLAW_ALLOW_INSECURE_PRIVATE_WS=1
     source "$HOME/.openclaw/completions/openclaw.bash"
 fi
+export PATH="$PATH:$HOME/.hoop/bin"
