@@ -1,2 +1,6 @@
 #!/bin/bash
-rclone sync ~/notes gdrive:notes --copy-links --log-level INFO
+rclone bisync ~/notes gdrive:notes \
+  --conflict-resolve newer \
+  --conflict-loser delete \
+  --copy-links \
+  --log-level INFO
